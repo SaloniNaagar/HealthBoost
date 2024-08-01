@@ -1,0 +1,4060 @@
+{
+  "name": "HealthBoost-action",
+  "type": "action",
+  "counts": {
+    "actions": 6,
+    "intents": 3,
+    "entities": 12,
+    "data_types": 0,
+    "collections": 0,
+    "global_variables": 2
+  },
+  "status": "Available",
+  "language": "en",
+  "skill_id": "8b0fae03-6ec4-41ff-851e-9a06cbd80467",
+  "workspace": {
+    "actions": [
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "digression_failure",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't confirm if you wanted to return to previous topic, let me connect to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "digression_failure",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Failed to confirm topic return"
+                }
+              ]
+            },
+            "next_step": "step_001"
+          },
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. I can connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_001",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Step validation failed"
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't assist you. I will connect you to an agent right away."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Agent requested"
+                }
+              ]
+            },
+            "next_step": "step_003"
+          },
+          {
+            "step": "step_003",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I am afraid I do not understand what you are asking, let me connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_003",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "No action matches"
+                }
+              ]
+            },
+            "next_step": "step_004"
+          },
+          {
+            "step": "step_004",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_004",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Danger word detected"
+                }
+              ]
+            },
+            "next_step": "step_005"
+          },
+          {
+            "step": "step_005",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_005",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Profanity detected"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Fallback",
+        "action": "fallback",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "fallback_connect_to_agent"
+        },
+        "variables": [
+          {
+            "title": "Topic return failed",
+            "variable": "digression_failure",
+            "data_type": "any"
+          },
+          {
+            "title": "I'm afraid I don't understand. I can connect you to an agent.",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "title": "Sorry I couldn't assist you. I will connect you to an agent righ",
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "title": "I am afraid I do not understand what you are asking, let me conn",
+            "variable": "step_003",
+            "data_type": "any"
+          },
+          {
+            "title": "It seems this conversation would be best managed",
+            "variable": "step_004",
+            "data_type": "any"
+          },
+          {
+            "title": "Profanity - It seems this conversation",
+            "variable": "step_005",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "run_always",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "danger_word_detected",
+            "title": "Connect to agent",
+            "handlers": [],
+            "resolver": {
+              "type": "fallback"
+            },
+            "variable": "danger_word_detected_variable",
+            "condition": {
+              "entity": "danger_words"
+            },
+            "next_step": "profanity_detected"
+          },
+          {
+            "step": "profanity_detected",
+            "title": "Show warning",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Please use appropriate language when interacting with the assistant."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "max_hits",
+                "handler": "max_hits_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "max_hits": 2,
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "profanity_detected_variable",
+            "condition": {
+              "entity": "profane_words"
+            }
+          }
+        ],
+        "title": "Trigger word detected",
+        "action": "run_always",
+        "boosts": [],
+        "handlers": [],
+        "variables": [
+          {
+            "title": "Profanity detected",
+            "variable": "danger_word_detected_variable",
+            "data_type": "any"
+          },
+          {
+            "title": "Profane word detected",
+            "variable": "profanity_detected_variable",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "anything_else"
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. Please rephrase your question."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001",
+            "condition": {
+              "lte": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action_and_end",
+              "invoke_action": {
+                "action": "fallback",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_002_result_1"
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "gt": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            }
+          }
+        ],
+        "title": "No matches",
+        "action": "anything_else",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "anything_else"
+        },
+        "variables": [
+          {
+            "title": "I am afraid I do not understand what you are asking, please re-p",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002_result_1",
+            "data_type": "any"
+          }
+        ],
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Welcome, how can I assist you?"
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001"
+          }
+        ],
+        "title": "Greet customer",
+        "action": "welcome",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "welcome"
+        },
+        "variables": [
+          {
+            "variable": "step_001",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_25843",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_286",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Hello, Welcome to HabitBoost - Daily Habit Improvement Assistance"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_286",
+            "next_step": "step_428"
+          },
+          {
+            "step": "step_428",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What's your name ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_428",
+            "next_step": "step_222"
+          },
+          {
+            "step": "step_222",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": ""
+                          },
+                          {
+                            "skill_variable": "name"
+                          },
+                          {
+                            "scalar": " , Welcome you to HabitBoost.\n\n<br />\n\n\n\nThese are the options for improvement of daily ***good habits.*** Select any one option"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Health and Fitness",
+                      "value": {
+                        "input": {
+                          "text": "Health and Fitness"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Mental Wellness",
+                      "value": {
+                        "input": {
+                          "text": "Mental Wellness"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Productivity",
+                      "value": {
+                        "input": {
+                          "text": "Productivity"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Personal Growth",
+                      "value": {
+                        "input": {
+                          "text": "Personal Growth"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Social and Relationships",
+                      "value": {
+                        "input": {
+                          "text": "Social and Relationships"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Self Care",
+                      "value": {
+                        "input": {
+                          "text": "Self Care"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Financial Health",
+                      "value": {
+                        "input": {
+                          "text": "Financial Health"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "context": {
+              "variables": [
+                {
+                  "value": {
+                    "variable": "step_428"
+                  },
+                  "skill_variable": "name"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_48998",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_222",
+            "next_step": "step_156"
+          },
+          {
+            "step": "step_156",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": ""
+                          },
+                          {
+                            "skill_variable": "name"
+                          },
+                          {
+                            "scalar": ", you want to improve your Health\n\n<br />\n\n\n\nThese are the option which one you want to improve"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Exercise",
+                      "value": {
+                        "input": {
+                          "text": "Exercise"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Hydration",
+                      "value": {
+                        "input": {
+                          "text": "Hydration"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Healthy Meals",
+                      "value": {
+                        "input": {
+                          "text": "Healthy Meals"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Sleep",
+                      "value": {
+                        "input": {
+                          "text": "Sleep"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_19911",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_156",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_222"
+                },
+                {
+                  "value": "Health and Fitness",
+                  "from_entity": "entity_48998"
+                }
+              ]
+            },
+            "next_step": "step_127"
+          },
+          {
+            "step": "step_127",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Adding exercise to your routine and gradually improving it involves setting realistic goals, creating a structured plan, and staying consistent. Here are some steps to help you get started and progressively improve your exercise regimen:\n\n### Starting Out\n\n  1. **Set Clear Goals**:\n    - Determine what you want to achieve (e.g., weight loss, muscle gain, improved cardiovascular health).\n    -"
+                          },
+                          {
+                            "scalar": " Set both short-term and long-term goals.\n\n\n  2. **Choose Enjoyable Activities**:\n    - Select exercises you enjoy to stay motivated.\n    - Mix up activities to keep it interesting (e.g., running, cycling, swimming, yoga, strength training).\n\n\n  3. **Create a Schedule**:\n    - Plan specific days and times for your workouts.\n    - Start with a manageable schedule, such as 3-4 days a week."
+                          },
+                          {
+                            "scalar": "\n\n\n\n### Gradually Increasing Intensity\n\n  1. **Start Slowly**:\n    - Begin with light to moderate intensity.\n    - Allow your body to adapt, especially if you are new to exercise.\n\n\n  2. **Progressive Overload**:\n    - Gradually increase the intensity, duration, or frequency of your workouts.\n    - For example, add 5-10 minutes to your cardio sessions or increase weights/reps in strength training."
+                          },
+                          {
+                            "scalar": "\n\n\n  3. **Track Your Progress**:\n    - Keep a workout journal or use an app to record your exercises, sets, reps, and weights.\n    - Regularly review your progress to stay motivated and adjust goals as needed.\n\n\n\n### Varying Your Routine\n\n  1. **Incorporate Different Types of Exercise**:\n    - Combine cardiovascular exercise (running, cycling) with strength training (weights,"
+                          },
+                          {
+                            "scalar": " resistance bands) and flexibility exercises (stretching, yoga).\n\n\n  2. **Cross-Training**:\n    - Engage in different forms of exercise to work various muscle groups and prevent boredom.\n    - This can also help reduce the risk of injury.\n\n\n  3. **Rest and Recovery**:\n    - Include rest days in your schedule to allow your body to recover and prevent overtraining.\n    -"
+                          },
+                          {
+                            "scalar": " Listen to your body and take additional rest if needed.\n\n\n\n### Staying Motivated\n\n  1. **Set Milestones and Reward Yourself**:\n    - Celebrate achieving small milestones to stay motivated.\n    - Reward yourself with something enjoyable (e.g., a new workout outfit, a relaxing day).\n\n\n  2. **Find a Workout Buddy**:\n    -"
+                          },
+                          {
+                            "scalar": " Exercising with a friend can provide accountability and make workouts more enjoyable.\n\n\n  3. **Stay Consistent**:\n    - Consistency is key to seeing progress.\n    - Even on days when motivation is low, try to stick to your routine.\n\n\n\n### Seeking Guidance\n\n  1. **Consult a Fitness Professional**:\n    - If you're unsure where to start, consider working with a personal trainer.\n    -"
+                          },
+                          {
+                            "scalar": " They can create a personalized workout plan and ensure you use proper form.\n\n\n  2. **Educate Yourself**:\n    - Read articles, watch videos, or take courses to learn more about exercise and fitness.\n    - Knowledge can help you optimize your workouts and avoid common mistakes.\n\n\n\nBy following these steps, you can effectively add exercise to your routine and continuously improve your fitness level."
+                          },
+                          {
+                            "scalar": ""
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_127",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_156"
+                },
+                {
+                  "value": "Exercise",
+                  "from_entity": "entity_19911"
+                }
+              ]
+            },
+            "next_step": "step_289"
+          },
+          {
+            "step": "step_289",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Improving sleep involves creating a conducive environment and adopting healthy habits. Here are some strategies:\n\n### Create a Sleep-Friendly Environment\n\n  1. **Comfortable Bedding**: Ensure your mattress and pillows are comfortable.\n  2. **Darkness**: Use blackout curtains or a sleep mask to keep the room dark.\n  3. **Quietness**: Use earplugs or white noise machines to block out noise.\n  4."
+                          },
+                          {
+                            "scalar": " **Cool Temperature**: Keep the room cool, around 60-67°F (15-19°C).\n  5. **Minimal Distractions**: Remove electronic devices and other distractions from the bedroom.\n\n### Establish a Routine\n\n  1. **Consistent Schedule**: Go to bed and wake up at the same time every day, even on weekends.\n  2. **Relaxing Bedtime Routine**: Engage in calming activities like reading, taking a warm bath,"
+                          },
+                          {
+                            "scalar": " or meditating before bed.\n\n### Healthy Habits\n\n  1. **Limit Screen Time**: Avoid screens (phones, tablets, computers, TV) at least an hour before bed.\n  2. **Mind Your Diet**: Avoid heavy meals, caffeine, and alcohol close to bedtime.\n  3. **Exercise Regularly**: Engage in regular physical activity, but avoid vigorous exercise close to bedtime.\n  4. **Limit Naps**: If you need to nap,"
+                          },
+                          {
+                            "scalar": " keep it short (20-30 minutes) and avoid napping late in the day.\n\n### Manage Stress\n\n  1. **Relaxation Techniques**: Practice deep breathing, progressive muscle relaxation, or yoga.\n  2. **Mindfulness and Meditation**: Use mindfulness and meditation techniques to reduce stress.\n\n### Seek Professional Help\n\n  1. **Consult a Doctor**: If you have persistent sleep problems,"
+                          },
+                          {
+                            "scalar": " consult a healthcare professional to rule out sleep disorders.\n\nBy incorporating these tips into your daily routine, you can improve your sleep quality and overall well-being."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_289",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_156"
+                },
+                {
+                  "value": "Sleep",
+                  "from_entity": "entity_19911"
+                }
+              ]
+            },
+            "next_step": "step_237"
+          },
+          {
+            "step": "step_237",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Incorporating healthy meals into your daily routine involves planning, making nutritious choices, and being mindful of portion sizes. Here are some tips to help you add healthy meals to your daily routine:\n\n### Breakfast\n\n  1. **Whole Grains**:\n    - Oatmeal, whole-grain toast, or whole-grain cereals.\n\n\n  2. **Protein**:\n    - Eggs, Greek yogurt, cottage cheese, or a protein smoothie.\n\n\n  3."
+                          },
+                          {
+                            "scalar": " **Fruits and Vegetables**:\n    - Fresh fruit, berries, or a veggie-filled omelet.\n\n\n  4. **Healthy Fats**:\n    - Avocado, nuts, or seeds.\n\n\n\n### Lunch\n\n  1. **Lean Proteins**:\n    - Grilled chicken, fish, tofu, beans, or legumes.\n\n\n  2. **Whole Grains**:\n    - Brown rice, quinoa, whole-grain bread, or wraps.\n\n\n  3. **Vegetables**:\n    - A large salad, steamed vegetables, or a veggie wrap.\n\n\n  4."
+                          },
+                          {
+                            "scalar": " **Healthy Fats**:\n    - Olive oil, avocado, nuts, or seeds.\n\n\n\n### Dinner\n\n  1. **Lean Proteins**:\n    - Baked or grilled fish, chicken, lean beef, or plant-based proteins.\n\n\n  2. **Whole Grains**:\n    - Whole-wheat pasta, brown rice, barley, or farro.\n\n\n  3. **Vegetables**:\n    - Roasted, steamed, or stir-fried vegetables.\n\n\n  4. **Healthy Fats**:\n    - Olive oil, avocado, nuts, or seeds."
+                          },
+                          {
+                            "scalar": "\n\n\n\n### Snacks\n\n  1. **Fresh Fruits and Vegetables**:\n    - Apple slices with peanut butter, carrot sticks, or cucumber slices.\n\n\n  2. **Nuts and Seeds**:\n    - Almonds, walnuts, sunflower seeds, or chia seeds.\n\n\n  3. **Dairy or Dairy Alternatives**:\n    - Greek yogurt, cheese sticks, or plant-based yogurt.\n\n\n  4. **Whole Grains**:\n    - Whole-grain crackers, rice cakes, or popcorn."
+                          },
+                          {
+                            "scalar": "\n\n\n\n### Tips for Planning and Preparation\n\n  1. **Meal Planning**:\n    - Plan your meals for the week ahead of time to ensure balanced nutrition.\n    - Make a grocery list based on your meal plan to avoid unhealthy impulse buys.\n\n\n  2. **Meal Prep**:\n    - Prepare meals or meal components in advance (e.g., chopping vegetables, cooking grains).\n    - Store pre-"
+                          },
+                          {
+                            "scalar": "portioned meals in containers for easy access throughout the week.\n\n\n  3. **Balanced Plates**:\n    - Aim to fill half your plate with vegetables, a quarter with lean proteins, and a quarter with whole grains.\n    - Incorporate healthy fats in moderation.\n\n\n  4. **Hydration**:\n    - Drink plenty of water throughout the day.\n    - Limit sugary drinks and opt for herbal teas or infused water instead."
+                          },
+                          {
+                            "scalar": "\n\n\n  5. **Mindful Eating**:\n    - Eat slowly and savor your meals.\n    - Pay attention to hunger and fullness cues to avoid overeating.\n\n\n  6. **Healthy Cooking Methods**:\n    - Opt for grilling, baking, steaming, or sautéing instead of frying.\n    - Use herbs and spices to add flavor without extra calories."
+                          },
+                          {
+                            "scalar": "\n\n\n\n### Example of a Daily Healthy Meal Plan\n**Breakfast**: Greek yogurt with mixed berries, a handful of nuts, and a drizzle of honey.\n**Snack**: Apple slices with almond butter.\n**Lunch**: Quinoa salad with grilled chicken, mixed greens, cherry tomatoes, cucumbers, and a vinaigrette dressing.\n**Snack**: Carrot sticks with hummus."
+                          },
+                          {
+                            "scalar": "\n**Dinner**: Baked salmon with roasted sweet potatoes and steamed broccoli.\n**Snack**: A small bowl of mixed fruit or a handful of trail mix.\n\nBy incorporating these tips and planning ahead, you can easily add healthy meals to your daily routine and maintain a balanced diet."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_237",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_156"
+                },
+                {
+                  "value": "Healthy Meals",
+                  "from_entity": "entity_19911"
+                }
+              ]
+            },
+            "next_step": "step_461"
+          },
+          {
+            "step": "step_461",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Staying hydrated is crucial for overall health and well-being. Here are some strategies to help you stay hydrated throughout the day:\n\n### Daily Hydration Tips\n\n  1. **Drink Water Regularly**:\n    - Aim to drink a glass of water first thing in the morning.\n    - Carry a reusable water bottle with you and sip throughout the day.\n\n\n  2. **Set Reminders**:\n    -"
+                          },
+                          {
+                            "scalar": " Use smartphone apps or set alarms to remind you to drink water at regular intervals.\n    - Create a schedule, such as drinking a glass of water every hour.\n\n\n  3. **Infuse Your Water**:\n    - Add slices of fruits (lemon, lime, orange), vegetables (cucumber), or herbs (mint, basil) to your water for flavor.\n    - This can make drinking water more enjoyable and encourage you to drink more.\n\n\n  4."
+                          },
+                          {
+                            "scalar": " **Eat Water-Rich Foods**:\n    - Include fruits and vegetables with high water content in your diet, such as watermelon, cucumbers, oranges, strawberries, and celery.\n\n\n  5. **Drink Before, During, and After Exercise**:\n    - Hydrate before your workout, sip water during exercise, and drink after to replenish fluids.\n\n\n  6. **Monitor Your Urine**:\n    -"
+                          },
+                          {
+                            "scalar": " Check the color of your urine; pale yellow usually indicates proper hydration, while dark yellow or amber suggests dehydration.\n\n\n  7. **Limit Dehydrating Beverages**:\n    - Reduce intake of caffeinated and alcoholic beverages, as they can contribute to dehydration.\n    - If you do consume these, drink extra water to compensate.\n\n\n\n### Hydration Goals\n\n  1. **Follow the 8x8 Rule**:\n    -"
+                          },
+                          {
+                            "scalar": " Aim to drink eight 8-ounce glasses of water a day (about 2 liters or half a gallon).\n    - Adjust based on your individual needs, activity level, and climate.\n\n\n  2. **Hydration for Active Individuals**:\n    - If you're physically active, you may need more water.\n    - Consider drinking sports drinks with electrolytes for long-"
+                          },
+                          {
+                            "scalar": "duration activities or intense exercise to maintain electrolyte balance.\n\n\n  3. **Hydrate with Meals**:\n    - Drink a glass of water with each meal and snack.\n    - This not only helps with hydration but can also aid digestion.\n\n\n\n### Hydration Tools and Techniques\n\n  1. **Use Hydration Apps**:\n    - Download apps like MyFitnessPal, WaterMinder,"
+                          },
+                          {
+                            "scalar": " or Hydro Coach to track your water intake and set goals.\n\n\n  2. **Keep Water Accessible**:\n    - Place water bottles in key areas (desk, car, kitchen, bedside table) to make it convenient to drink water.\n    - Use a water filter pitcher or install a filtration system to improve taste and encourage drinking.\n\n\n  3. **Invest in a Quality Water Bottle**:\n    -"
+                          },
+                          {
+                            "scalar": " Choose a reusable water bottle that suits your needs (insulated, with measurement markings, easy to carry).\n    - Consider using a water bottle with a built-in filter if you often drink tap water.\n\n\n\n### Incorporate Hydration into Routine\n\n  1. **Develop Habits**:\n    - Pair drinking water with existing habits, like drinking a glass of water after brushing your teeth or during work breaks.\n    -"
+                          },
+                          {
+                            "scalar": " Make it a habit to drink a glass of water before each meal.\n\n\n  2. **Use Visual Cues**:\n    - Place sticky notes or visual reminders around your home or workspace to prompt you to drink water.\n    - Use water bottles with time markers to help you track your intake throughout the day.\n\n\n\nBy following these tips and incorporating these habits into your daily routine,"
+                          },
+                          {
+                            "scalar": " you can ensure that you stay adequately hydrated and maintain good health."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_461",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_156"
+                },
+                {
+                  "value": "Hydration",
+                  "from_entity": "entity_19911"
+                }
+              ]
+            },
+            "next_step": "step_434"
+          },
+          {
+            "step": "step_434",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": ""
+                          },
+                          {
+                            "skill_variable": "name"
+                          },
+                          {
+                            "scalar": ",you want to improve your productivity\n\n<br />\n\n\n\nThese are the options which one you want to improve"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Planning",
+                      "value": {
+                        "input": {
+                          "text": "Planning"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Prioritizing",
+                      "value": {
+                        "input": {
+                          "text": "Prioritizing"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Focusing",
+                      "value": {
+                        "input": {
+                          "text": "Focusing"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Scheduling",
+                      "value": {
+                        "input": {
+                          "text": "Scheduling"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Resting",
+                      "value": {
+                        "input": {
+                          "text": "Resting"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_45556",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_434",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_222"
+                },
+                {
+                  "value": "Productivity",
+                  "from_entity": "entity_48998"
+                }
+              ]
+            },
+            "next_step": "step_119"
+          },
+          {
+            "step": "step_119",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Morning Routine**: Spend the first 10-15 minutes of your day outlining your tasks and goals.\n- **To-Do Lists**: Create a daily to-do list, breaking down larger tasks into smaller, manageable steps.\n- **Evening Review**: Review your plan at the end of the day to assess progress and adjust for the next day"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_119",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_434"
+                },
+                {
+                  "value": "Planning",
+                  "from_entity": "entity_45556"
+                }
+              ]
+            },
+            "next_step": "step_163"
+          },
+          {
+            "step": "step_163",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Identify Priorities**: Use methods like the Eisenhower Matrix to categorize tasks by urgency and importance.\n- **Top 3 Tasks**: Start your day by identifying and focusing on the top 3 tasks that need to be completed.\n- **Time Blocking**: Allocate specific time blocks in your schedule for high-priority tasks to ensure they get done."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_163",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_434"
+                },
+                {
+                  "value": "Prioritizing",
+                  "from_entity": "entity_45556"
+                }
+              ]
+            },
+            "next_step": "step_353"
+          },
+          {
+            "step": "step_353",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Set Clear Goals**: Define clear, achievable goals for each work session.\n- **Eliminate Distractions**: Create a distraction-free environment by silencing notifications and keeping your workspace tidy.\n- **Pomodoro Technique**: Use the Pomodoro Technique by working for 25 minutes and taking a 5-minute break, which helps maintain focus and prevent burnout."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_353",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_434"
+                },
+                {
+                  "value": "Focusing",
+                  "from_entity": "entity_45556"
+                }
+              ]
+            },
+            "next_step": "step_778"
+          },
+          {
+            "step": "step_778",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Daily Agenda**: Use a planner or digital calendar to schedule your tasks and appointments for the day.\n- **Time Management Tools**: Utilize tools like Google Calendar or Microsoft Outlook to set reminders and keep track of deadlines.\n- **Routine Tasks**: Schedule routine tasks at the same time each day to build a consistent routine."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_778",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_434"
+                },
+                {
+                  "value": "Scheduling",
+                  "from_entity": "entity_45556"
+                }
+              ]
+            },
+            "next_step": "step_907"
+          },
+          {
+            "step": "step_907",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Scheduled Breaks**: Incorporate short breaks throughout your workday, such as a 5-10 minute break every hour.\n- **Lunch Break**: Ensure you take a full lunch break away from your workspace to recharge.\n- **Sleep Routine**: Establish a consistent sleep schedule by going to bed and waking up at the same time every day to ensure adequate rest."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_907",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_434"
+                },
+                {
+                  "value": "Resting",
+                  "from_entity": "entity_45556"
+                }
+              ]
+            },
+            "next_step": "step_213"
+          },
+          {
+            "step": "step_213",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": ""
+                          },
+                          {
+                            "skill_variable": "name"
+                          },
+                          {
+                            "scalar": ", you want to improve your financial health\n\n<br />\n\n\n\nThese are the option which one you want to improve"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Budgeting",
+                      "value": {
+                        "input": {
+                          "text": "Budgeting"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Saving",
+                      "value": {
+                        "input": {
+                          "text": "Saving"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Tracking",
+                      "value": {
+                        "input": {
+                          "text": "Tracking"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Investing",
+                      "value": {
+                        "input": {
+                          "text": "Investing"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Planning",
+                      "value": {
+                        "input": {
+                          "text": "Planning"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_40996",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_213",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_222"
+                },
+                {
+                  "value": "Financial Health",
+                  "from_entity": "entity_48998"
+                }
+              ]
+            },
+            "next_step": "step_805"
+          },
+          {
+            "step": "step_805",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Daily Action**: Review your daily expenses and update your budget accordingly. Use a budgeting app to track your spending and adjust your budget if needed.\n- **Improvement**: Analyze monthly spending trends, refine budget categories, and set new financial goals based on your observations."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_805",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_213"
+                },
+                {
+                  "value": "Budgeting",
+                  "from_entity": "entity_40996"
+                }
+              ]
+            },
+            "next_step": "step_959"
+          },
+          {
+            "step": "step_959",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Daily Action**: Set aside a specific amount of money each day into a savings account or automatic savings plan. This could be a fixed amount or a percentage of any income you receive.\n- **Improvement**: Gradually increase your savings amount as your income grows. Regularly review your savings goals and adjust based on financial milestones or changing needs."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_959",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_213"
+                },
+                {
+                  "value": "Saving",
+                  "from_entity": "entity_40996"
+                }
+              ]
+            },
+            "next_step": "step_643"
+          },
+          {
+            "step": "step_643",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Daily Action**: Keep a record of all your transactions, including income and expenses. Use financial tracking apps or spreadsheets to categorize and monitor your spending.\n- **Improvement**: Analyze spending patterns and identify areas where you can cut back. Regularly review and adjust your tracking methods to ensure accuracy and comprehensiveness."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_643",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_213"
+                },
+                {
+                  "value": "Tracking",
+                  "from_entity": "entity_40996"
+                }
+              ]
+            },
+            "next_step": "step_534"
+          },
+          {
+            "step": "step_534",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Daily Action**: Stay informed about investment opportunities and market trends. Allocate time to read financial news or updates related to your investments.\n- **Improvement**: Regularly review your investment portfolio, assess performance, and make adjustments as needed. Educate yourself on different investment strategies and diversify your portfolio."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_534",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_213"
+                },
+                {
+                  "value": "Investing",
+                  "from_entity": "entity_40996"
+                }
+              ]
+            },
+            "next_step": "step_771"
+          },
+          {
+            "step": "step_771",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Daily Action**: Set aside a few minutes to review your short-term and long-term financial goals. Create or update a financial plan to stay on track with your objectives.\n  - **Improvement**: Regularly revisit and revise your financial plan based on changes in income, expenses, or financial goals. Seek advice from financial professionals if needed to refine your strategy."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_771",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_213"
+                },
+                {
+                  "value": "Planning",
+                  "from_entity": "entity_40996"
+                }
+              ]
+            },
+            "next_step": "step_898"
+          },
+          {
+            "step": "step_898",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": ""
+                          },
+                          {
+                            "skill_variable": "name"
+                          },
+                          {
+                            "scalar": " , you want to improve your Social and Relationship\n\n<br />\n\n\n\nThese are the options which one you want to choose"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Communication",
+                      "value": {
+                        "input": {
+                          "text": "Communication"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Empathy",
+                      "value": {
+                        "input": {
+                          "text": "Empathy"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Respect",
+                      "value": {
+                        "input": {
+                          "text": "Respect"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Support",
+                      "value": {
+                        "input": {
+                          "text": "Support"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Quality time",
+                      "value": {
+                        "input": {
+                          "text": "Quality time"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_13025",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_898",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_222"
+                },
+                {
+                  "value": "Social and Relationships",
+                  "from_entity": "entity_48998"
+                }
+              ]
+            },
+            "next_step": "step_886"
+          },
+          {
+            "step": "step_886",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Active Listening**: Focus on truly hearing what others are saying without interrupting. Show you’re engaged through nodding and appropriate responses.\n  - **Regular Check-ins**: Schedule brief catch-ups with friends, family, or colleagues to stay connected and informed about each other’s lives.\n  - **Express Yourself**: Share your thoughts and feelings openly and honestly."
+                          },
+                          {
+                            "scalar": " Use “I” statements to communicate your perspective without assigning blame.\n\n**Daily Routine Tip**:\n\n\n  - Allocate a few minutes each day to have meaningful conversations with those close to you. This could be a quick phone call, a text exchange, or in-person interaction."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_886",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_898"
+                },
+                {
+                  "value": "Communication",
+                  "from_entity": "entity_13025"
+                }
+              ]
+            },
+            "next_step": "step_604"
+          },
+          {
+            "step": "step_604",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Understand Perspectives**: Make an effort to see situations from others’ viewpoints. Ask questions to better understand their feelings and experiences.\n  - **Validate Feelings**: Acknowledge and affirm the emotions of others, even if you don’t fully agree with their perspective.\n  - **Show Compassion**: Offer support or a listening ear when someone is going through a difficult time."
+                          },
+                          {
+                            "scalar": "\n\n**Daily Routine Tip**:\n\n\n  - Practice empathy by actively listening and validating the feelings of those around you, whether in personal or professional interactions."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_604",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_898"
+                },
+                {
+                  "value": "Empathy",
+                  "from_entity": "entity_13025"
+                }
+              ]
+            },
+            "next_step": "step_139"
+          },
+          {
+            "step": "step_139",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Boundaries**: Recognize and honor the personal boundaries of others. Avoid overstepping or making assumptions about their comfort zones.\n  - **Politeness**: Use courteous language and gestures, such as saying “please” and “thank you,” and avoid disrespectful comments.\n  - **Acknowledgment**: Show appreciation for others’ efforts and contributions. Offer positive feedback and recognition."
+                          },
+                          {
+                            "scalar": "\n\n**Daily Routine Tip**:\n\n\n  - Integrate respect into your interactions by being mindful of others’ boundaries and consistently expressing gratitude and politeness."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_139",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_898"
+                },
+                {
+                  "value": "Respect",
+                  "from_entity": "entity_13025"
+                }
+              ]
+            },
+            "next_step": "step_818"
+          },
+          {
+            "step": "step_818",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Offer Help**: Be proactive in offering assistance to friends, family, or colleagues when they need it, whether it’s emotional support or practical help.\n  - **Encourage**: Provide encouragement and positive reinforcement, especially during challenging times or when someone is pursuing their goals.\n  - **Celebrate Achievements**: Acknowledge and celebrate the successes of those around you,"
+                          },
+                          {
+                            "scalar": " big or small.\n\n**Daily Routine Tip**:\n\n\n  - Make it a habit to check in with others and offer support or encouragement as needed, whether through a simple message, a helping hand, or celebrating their successes."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_818",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_898"
+                },
+                {
+                  "value": "Support",
+                  "from_entity": "entity_13025"
+                }
+              ]
+            },
+            "next_step": "step_276"
+          },
+          {
+            "step": "step_276",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Prioritize Togetherness**: Schedule regular time to spend with loved ones, such as family dinners, game nights, or weekend outings.\n  - **Be Present**: When spending time with others, focus on being fully engaged and present, without distractions like phones or work.\n  - **Plan Activities**: Organize activities or experiences that you can enjoy together,"
+                          },
+                          {
+                            "scalar": " fostering stronger bonds and shared memories.\n\n**Daily Routine Tip**:\n\n\n  - Set aside specific times in your week for quality interactions with important people in your life. Even short, meaningful moments of connection can be valuable."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_276",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_898"
+                },
+                {
+                  "value": "Quality time",
+                  "from_entity": "entity_13025"
+                }
+              ]
+            },
+            "next_step": "step_437"
+          },
+          {
+            "step": "step_437",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": ""
+                          },
+                          {
+                            "skill_variable": "name"
+                          },
+                          {
+                            "scalar": " , you want to improve your personal growth \n\n<br />\n\n\n\nThese are the options to improve your personal growth which one you want to choose"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Reflection",
+                      "value": {
+                        "input": {
+                          "text": "Reflection"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Learning",
+                      "value": {
+                        "input": {
+                          "text": "Learning"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Goal-setting",
+                      "value": {
+                        "input": {
+                          "text": "Goal-setting"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Gratitude",
+                      "value": {
+                        "input": {
+                          "text": "Gratitude"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Exercise",
+                      "value": {
+                        "input": {
+                          "text": "Exercise"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_39685",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_437",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_222"
+                },
+                {
+                  "value": "Personal Growth",
+                  "from_entity": "entity_48998"
+                }
+              ]
+            },
+            "next_step": "step_567"
+          },
+          {
+            "step": "step_567",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Daily Practice**: Set aside 5-10 minutes each day, preferably in the evening, to reflect on your day. Consider using a journal or a reflection app.\n- **Questions to Ask**: Reflect on what went well, what challenges you faced, and what you can improve. Ask yourself how you felt throughout the day and what you learned.\n- **Benefits**: This practice helps you understand yourself better,"
+                          },
+                          {
+                            "scalar": " recognize patterns, and make informed adjustments for personal growth."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_567",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_437"
+                },
+                {
+                  "value": "Reflection",
+                  "from_entity": "entity_39685"
+                }
+              ]
+            },
+            "next_step": "step_955"
+          },
+          {
+            "step": "step_955",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Daily Reading**: Dedicate at least 20-30 minutes a day to reading books, articles, or papers related to your interests or professional field.\n- **Online Courses**: Enroll in online courses or watch educational videos that align with your personal or career goals.\n- **Learning Goals**: Set specific learning goals and track your progress. This could include mastering a new skill,"
+                          },
+                          {
+                            "scalar": " learning a language, or expanding your knowledge in a particular area."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_955",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_437"
+                },
+                {
+                  "value": "Learning",
+                  "from_entity": "entity_39685"
+                }
+              ]
+            },
+            "next_step": "step_842"
+          },
+          {
+            "step": "step_842",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Daily Goals**: Start each day by setting clear, achievable goals. Use a planner or digital tool to list what you aim to accomplish.\n- **Track Progress**: Regularly review and adjust your goals based on your progress. Break larger goals into smaller, manageable tasks.\n- **Reflect and Adjust**: At the end of the day,"
+                          },
+                          {
+                            "scalar": " evaluate what you achieved and how you can improve or adjust your goals for the next day."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_842",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_437"
+                },
+                {
+                  "value": "Goal-setting",
+                  "from_entity": "entity_39685"
+                }
+              ]
+            },
+            "next_step": "step_435"
+          },
+          {
+            "step": "step_435",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Gratitude Journal**: Each day, write down three things you’re grateful for. This could be in the morning or before bed.\n- **Daily Acknowledgment**: Express gratitude to others through thank-you notes, messages, or simply verbal acknowledgments.\n- **Mindfulness Practice**: Incorporate moments of mindfulness where you consciously focus on things you appreciate in your life."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_435",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_437"
+                },
+                {
+                  "value": "Gratitude",
+                  "from_entity": "entity_39685"
+                }
+              ]
+            },
+            "next_step": "step_688"
+          },
+          {
+            "step": "step_688",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Daily Routine**: Integrate at least 30 minutes of physical activity into your day. This could be a workout, a walk, or any form of exercise you enjoy.\n- **Scheduled Time**: Choose a consistent time each day for exercise, whether it's in the morning, during lunch, or in the evening.\n-"
+                          },
+                          {
+                            "scalar": " **Variety and Enjoyment**: Mix different types of exercise to keep it enjoyable and to work different muscle groups, such as cardio, strength training, and flexibility exercises."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_688",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_437"
+                },
+                {
+                  "value": "Exercise",
+                  "from_entity": "entity_39685"
+                }
+              ]
+            },
+            "next_step": "step_856"
+          },
+          {
+            "step": "step_856",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": ""
+                          },
+                          {
+                            "skill_variable": "name"
+                          },
+                          {
+                            "scalar": " , you want to improve your mental health \n\n<br />\n\n\n\nThese are the option to improve your mental health which one you want to choose"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Mindfulness",
+                      "value": {
+                        "input": {
+                          "text": "Mindfulness"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Exercise",
+                      "value": {
+                        "input": {
+                          "text": "Exercise"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Connection",
+                      "value": {
+                        "input": {
+                          "text": "Connection"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Routine",
+                      "value": {
+                        "input": {
+                          "text": "Routine"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Couseling",
+                      "value": {
+                        "input": {
+                          "text": "Couseling"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_8215",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_856",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_222"
+                },
+                {
+                  "value": "Mental Wellness",
+                  "from_entity": "entity_48998"
+                }
+              ]
+            },
+            "next_step": "step_483"
+          },
+          {
+            "step": "step_483",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Morning Start**: Dedicate 5-10 minutes each morning to practice mindfulness or meditation. This can be done through guided meditation apps or simple breathing exercises.\n- **Mini Breaks**: Incorporate short mindfulness sessions throughout the day, such as during lunch breaks or before meetings, to maintain focus and reduce stress."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_483",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_856"
+                },
+                {
+                  "value": "Mindfulness",
+                  "from_entity": "entity_8215"
+                }
+              ]
+            },
+            "next_step": "step_205"
+          },
+          {
+            "step": "step_205",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Scheduled Workouts**: Allocate 20-30 minutes each day for physical activity, whether it's a gym session, a jog, or a home workout routine.\n- **Active Breaks**: Take short, active breaks during work or study sessions. Stretch, walk around, or do quick exercises to keep your body moving."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_205",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_856"
+                },
+                {
+                  "value": "Exercise",
+                  "from_entity": "entity_8215"
+                }
+              ]
+            },
+            "next_step": "step_600"
+          },
+          {
+            "step": "step_600",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Regular Sessions**: If needed, schedule regular appointments with a therapist or counselor to discuss and work through any mental health concerns.\n- **Self-Monitoring**: Use a journal or mental health app to track your mood and thoughts, and share these observations with your counselor to tailor your sessions effectively."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_600",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_856"
+                },
+                {
+                  "value": "Couseling",
+                  "from_entity": "entity_8215"
+                }
+              ]
+            },
+            "next_step": "step_197"
+          },
+          {
+            "step": "step_197",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Daily Interaction**: Set aside time to connect with friends or family, whether through a phone call, text, or video chat.\n- **Social Activities**: Plan regular social activities, such as weekend outings or virtual hangouts, to maintain and strengthen your relationships."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_197",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_856"
+                },
+                {
+                  "value": "Connection",
+                  "from_entity": "entity_8215"
+                }
+              ]
+            },
+            "next_step": "step_990"
+          },
+          {
+            "step": "step_990",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- **Structured Day**: Create and follow a daily schedule that includes time for work, relaxation, hobbies, and self-care. Stick to this routine to foster a sense of stability.\n- **Evening Wind-Down**: Develop a calming evening routine, such as reading or taking a warm bath, to prepare your body and mind for restful sleep."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_990",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_856"
+                },
+                {
+                  "value": "Routine",
+                  "from_entity": "entity_8215"
+                }
+              ]
+            },
+            "next_step": "step_936"
+          },
+          {
+            "step": "step_936",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": ""
+                          },
+                          {
+                            "skill_variable": "name"
+                          },
+                          {
+                            "scalar": ", you want to improve self care\n\n<br />\n\n\n\nThese are the options to improve self care which one you want to improve"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Hydrate",
+                      "value": {
+                        "input": {
+                          "text": "Hydrate"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Rest",
+                      "value": {
+                        "input": {
+                          "text": "Rest"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Nourish",
+                      "value": {
+                        "input": {
+                          "text": "Nourish"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Reflect",
+                      "value": {
+                        "input": {
+                          "text": "Reflect"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Move",
+                      "value": {
+                        "input": {
+                          "text": "Move"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_5999",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_936",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_222"
+                },
+                {
+                  "value": "Self Care",
+                  "from_entity": "entity_48998"
+                }
+              ]
+            },
+            "next_step": "step_763"
+          },
+          {
+            "step": "step_763",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "**Why:** Proper hydration is essential for maintaining bodily functions, improving concentration, and enhancing energy levels.\n\n**How to Incorporate:**\n\n\n  - **Morning Routine:** Start your day with a glass of water to kickstart your metabolism.\n  - **Regular Reminders:** Set hourly reminders to drink water throughout the day. Apps can help track your hydration.\n  -"
+                          },
+                          {
+                            "scalar": " **Hydrating Foods:** Include water-rich foods like fruits (e.g., watermelon, oranges) and vegetables (e.g., cucumbers, celery) in your meals.\n  - **Carry a Bottle:** Keep a reusable water bottle with you to ensure you have access to water at all times."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_763",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_936"
+                },
+                {
+                  "value": "Hydrate",
+                  "from_entity": "entity_5999"
+                }
+              ]
+            },
+            "next_step": "step_185"
+          },
+          {
+            "step": "step_185",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "**Why:** Adequate rest is crucial for physical recovery, mental clarity, and overall health.\n\n**How to Incorporate:**\n\n\n  - **Sleep Schedule:** Aim for 7-9 hours of quality sleep each night. Stick to a consistent sleep schedule, even on weekends.\n  - **Power Naps:** Incorporate short naps (10-20 minutes) during the day if you feel fatigued.\n  -"
+                          },
+                          {
+                            "scalar": " **Mindful Breaks:** Take short breaks throughout your workday to rest your eyes and mind. Techniques like the Pomodoro Technique can help.\n  - **Relaxation Rituals:** Develop a pre-sleep routine that promotes relaxation, such as reading, meditating, or taking a warm bath"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_185",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_936"
+                },
+                {
+                  "value": "Rest",
+                  "from_entity": "entity_5999"
+                }
+              ]
+            },
+            "next_step": "step_477"
+          },
+          {
+            "step": "step_477",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "**Why:** Proper nutrition fuels your body, supports immune function, and affects mood and energy levels.\n\n**How to Incorporate:**\n\n\n  - **Balanced Meals:** Aim for a balanced diet that includes a variety of fruits, vegetables, lean proteins, whole grains, and healthy fats.\n  - **Meal Planning:** Plan your meals and snacks ahead of time to ensure you have nutritious options available.\n  -"
+                          },
+                          {
+                            "scalar": " **Mindful Eating:** Pay attention to hunger cues and eat slowly to savor your food and aid digestion.\n  - **Hydration and Nutrition:** Combine hydration with your meals. Herbal teas or infused water can complement your diet."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_477",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_936"
+                },
+                {
+                  "value": "Nourish",
+                  "from_entity": "entity_5999"
+                }
+              ]
+            },
+            "next_step": "step_507"
+          },
+          {
+            "step": "step_507",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "**Why:** Reflecting helps you understand your experiences, manage stress, and set goals for personal growth.\n\n**How to Incorporate:**\n\n\n  - **Journaling:** Spend a few minutes each day writing in a journal about your thoughts, feelings, and experiences.\n  - **Meditation:** Practice mindfulness or meditation to reflect on your day and manage stress.\n  -"
+                          },
+                          {
+                            "scalar": " **Gratitude Practice:** Take a moment each day to acknowledge things you are grateful for. This can improve overall well-being.\n  - **Self-Assessment:** Regularly assess your goals and progress to stay aligned with your personal values and aspirations."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_507",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_936"
+                },
+                {
+                  "value": "Reflect",
+                  "from_entity": "entity_5999"
+                }
+              ]
+            },
+            "next_step": "step_217"
+          },
+          {
+            "step": "step_217",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "**Why:** Physical activity is essential for maintaining cardiovascular health, improving mood, and boosting energy levels.\n\n**How to Incorporate:**\n\n\n  - **Daily Exercise:** Aim for at least 30 minutes of moderate exercise most days of the week. This can include activities like walking, cycling, or swimming.\n  - **Active Breaks:** Incorporate movement into your daily routine,"
+                          },
+                          {
+                            "scalar": " such as stretching or quick exercises during breaks at work.\n  - **Find Enjoyable Activities:** Choose physical activities you enjoy to make exercise more enjoyable and sustainable.\n  - **Incorporate Movement:** Opt for walking or cycling instead of driving for short trips, and use stairs instead of elevators when possible."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_217",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_936"
+                },
+                {
+                  "value": "Move",
+                  "from_entity": "entity_5999"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "hello",
+        "action": "action_4356",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_4356_intent_24589"
+        },
+        "variables": [
+          {
+            "title": "- **Morning Routine**: Spend the first 10-15 minutes of your day",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_119",
+            "data_type": "any"
+          },
+          {
+            "title": "Adding exercise to your routine and gradually improving it invol",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_127",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Boundaries**: Recognize and honor the personal boundaries of",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_139",
+            "data_type": "any"
+          },
+          {
+            "title": "{variable}, you want to improve your Health <br /> These are the",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_156",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Identify Priorities**: Use methods like the Eisenhower Matri",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_163",
+            "data_type": "any"
+          },
+          {
+            "title": "**Why:** Adequate rest is crucial for physical recovery, mental ",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_185",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Daily Interaction**: Set aside time to connect with friends ",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_197",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Scheduled Workouts**: Allocate 20-30 minutes each day for ph",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_205",
+            "data_type": "any"
+          },
+          {
+            "title": "{variable}, you want to improve your financial health <br /> The",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_213",
+            "data_type": "any"
+          },
+          {
+            "title": "**Why:** Physical activity is essential for maintaining cardiova",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_217",
+            "data_type": "any"
+          },
+          {
+            "title": "{variable} , Welcome you to HabitBoost. <br /> These are the opt",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_222",
+            "data_type": "any"
+          },
+          {
+            "title": "Incorporating healthy meals into your daily routine involves pla",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_237",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Prioritize Togetherness**: Schedule regular time to spend wi",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_276",
+            "data_type": "any"
+          },
+          {
+            "title": "Hello, Welcome to HabitBoost - Daily Habit Improvement Assistanc",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_286",
+            "data_type": "any"
+          },
+          {
+            "title": "Improving sleep involves creating a conducive environment and ad",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_289",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Set Clear Goals**: Define clear, achievable goals for each w",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_353",
+            "data_type": "any"
+          },
+          {
+            "title": "What's your name ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_428",
+            "data_type": "any"
+          },
+          {
+            "title": "{variable},you want to improve your productivity <br /> These ar",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_434",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Gratitude Journal**: Each day, write down three things you’r",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_435",
+            "data_type": "any"
+          },
+          {
+            "title": "{variable} , you want to improve your personal growth <br /> The",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_437",
+            "data_type": "any"
+          },
+          {
+            "title": "Staying hydrated is crucial for overall health and well-being. H",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_461",
+            "data_type": "any"
+          },
+          {
+            "title": "**Why:** Proper nutrition fuels your body, supports immune funct",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_477",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Morning Start**: Dedicate 5-10 minutes each morning to pract",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_483",
+            "data_type": "any"
+          },
+          {
+            "title": "**Why:** Reflecting helps you understand your experiences, manag",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_507",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Daily Action**: Stay informed about investment opportunities",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_534",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Daily Practice**: Set aside 5-10 minutes each day, preferabl",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_567",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Regular Sessions**: If needed, schedule regular appointments",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_600",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Understand Perspectives**: Make an effort to see situations ",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_604",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Daily Action**: Keep a record of all your transactions, incl",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_643",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Daily Routine**: Integrate at least 30 minutes of physical a",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_688",
+            "data_type": "any"
+          },
+          {
+            "title": "**Why:** Proper hydration is essential for maintaining bodily fu",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_763",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Daily Action**: Set aside a few minutes to review your short",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_771",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Daily Agenda**: Use a planner or digital calendar to schedul",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_778",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Daily Action**: Review your daily expenses and update your b",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_805",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Offer Help**: Be proactive in offering assistance to friends",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_818",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Daily Goals**: Start each day by setting clear, achievable g",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_842",
+            "data_type": "any"
+          },
+          {
+            "title": "{variable} , you want to improve your mental health <br /> These",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_856",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Active Listening**: Focus on truly hearing what others are s",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_886",
+            "data_type": "any"
+          },
+          {
+            "title": "{variable} , you want to improve your Social and Relationship <b",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_898",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Scheduled Breaks**: Incorporate short breaks throughout your",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_907",
+            "data_type": "any"
+          },
+          {
+            "title": "{variable}, you want to improve self care <br /> These are the o",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_936",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Daily Reading**: Dedicate at least 20-30 minutes a day to re",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_955",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Daily Action**: Set aside a specific amount of money each da",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_959",
+            "data_type": "any"
+          },
+          {
+            "title": "- **Structured Day**: Create and follow a daily schedule that in",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_990",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "fallback",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_740",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "My pleasure! Have a great day!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_740"
+          }
+        ],
+        "title": "Thank You",
+        "action": "action_25843",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_25843_intent_32114"
+        },
+        "variables": [
+          {
+            "title": "My pleasure! Have a great day!",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_740",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_4356",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      }
+    ],
+    "intents": [
+      {
+        "intent": "action_4356_intent_24589",
+        "examples": [
+          {
+            "text": "hlw"
+          },
+          {
+            "text": "hey"
+          },
+          {
+            "text": "Good Morning"
+          },
+          {
+            "text": "hii"
+          },
+          {
+            "text": "hello"
+          },
+          {
+            "text": "Good Evening"
+          },
+          {
+            "text": "Good Afternoon"
+          }
+        ]
+      },
+      {
+        "intent": "fallback_connect_to_agent",
+        "examples": [
+          {
+            "text": "I would like to speak to someone"
+          },
+          {
+            "text": "Can I connect to an agent?"
+          },
+          {
+            "text": "I would like to speak to a human"
+          },
+          {
+            "text": "Agent help"
+          },
+          {
+            "text": "Call agent"
+          }
+        ],
+        "description": "Please transfer me to an agent"
+      },
+      {
+        "intent": "action_25843_intent_32114",
+        "examples": [
+          {
+            "text": "Helpful"
+          },
+          {
+            "text": "Glad"
+          },
+          {
+            "text": "Thank You"
+          }
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "entity": "entity_48998",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Financial Health",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Health and Fitness",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Mental Wellness",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Productivity",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Personal Growth",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Social and Relationships",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Self Care",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "sys-time",
+        "values": []
+      },
+      {
+        "entity": "sys-yes-no",
+        "values": []
+      },
+      {
+        "entity": "danger_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "entity_40996",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Investing",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Tracking",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Saving",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Planning",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Budgeting",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_13025",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Quality time",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Communication",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Empathy",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Respect",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Support",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_5999",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Move",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Reflect",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Hydrate",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Rest",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Nourish",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_39685",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Exercise",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Gratitude",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Goal-setting",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Learning",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Reflection",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_45556",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Planning",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Prioritizing",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Focusing",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Scheduling",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Resting",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "profane_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "entity_8215",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Couseling",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Mindfulness",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Exercise",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Connection",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Routine",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_19911",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Exercise",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Sleep",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Hydration",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Healthy Meals",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      }
+    ],
+    "metadata": {
+      "api_version": {
+        "major_version": "v2",
+        "minor_version": "2018-11-08"
+      },
+      "skill": {
+        "counts": {
+          "actions": 6,
+          "intents": 3,
+          "entities": 12,
+          "data_types": 0,
+          "collections": 0,
+          "global_variables": 2
+        }
+      }
+    },
+    "variables": [
+      {
+        "title": "Exercise",
+        "privacy": {
+          "enabled": false
+        },
+        "variable": "Exercise",
+        "data_type": "time",
+        "description": ""
+      },
+      {
+        "title": "name",
+        "privacy": {
+          "enabled": false
+        },
+        "variable": "name",
+        "data_type": "string",
+        "description": ""
+      }
+    ],
+    "data_types": [],
+    "collections": [],
+    "counterexamples": [],
+    "system_settings": {
+      "variable": {
+        "format": {
+          "time": {
+            "pattern": "short"
+          },
+          "currency": {
+            "fraction_digits": 2
+          }
+        }
+      },
+      "off_topic": {
+        "enabled": true
+      },
+      "auto_learn": {
+        "apply": true
+      },
+      "topic_switch": {
+        "enabled": true,
+        "messages": {
+          "enable_confirmation": true,
+          "confirmation_failure": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "I'm sorry, I did not catch that, please confirm."
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              }
+            ]
+          },
+          "confirmation_request": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "Do you want to continue with the previous topic: "
+                        },
+                        {
+                          "system_variable": "digressed_from"
+                        },
+                        {
+                          "scalar": "?"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              },
+              {
+                "options": [
+                  {
+                    "label": "Yes",
+                    "value": {
+                      "input": {
+                        "text": "Yes"
+                      }
+                    }
+                  },
+                  {
+                    "label": "No",
+                    "value": {
+                      "input": {
+                        "text": "No"
+                      }
+                    }
+                  }
+                ],
+                "response_type": "option",
+                "repeat_on_reprompt": true
+              }
+            ]
+          }
+        },
+        "max_tries": 3
+      },
+      "generative_ai": {
+        "slot_filling": {
+          "enabled": false
+        }
+      },
+      "disambiguation": {
+        "prompt": "Did you mean:",
+        "enabled": true,
+        "randomize": true,
+        "max_suggestions": 5,
+        "suggestion_text_policy": "title",
+        "none_of_the_above_prompt": "None of the above",
+        "use_connect_to_support_prompt": "Connect to support",
+        "single_answer_clarification_prompt": "Something else"
+      },
+      "search_routing": {
+        "target": "conversational_search"
+      },
+      "spelling_auto_correct": true
+    },
+    "learning_opt_out": false,
+    "language": "en"
+  },
+  "description": "created for assistant a64369a9-4b95-43f4-a70d-2e1335443af2",
+  "dialog_settings": {
+    "source_assistant": "cde42830-1b47-423a-b111-a7334fa92b73"
+  },
+  "created": "2024-08-01T05:41:33.322Z",
+  "updated": "2024-08-01T05:41:33.322Z",
+  "snapshot": "1",
+  "assistant_id": "a64369a9-4b95-43f4-a70d-2e1335443af2",
+  "assistant_references": [
+    {
+      "name": "HealthBoost",
+      "assistant_id": "cde42830-1b47-423a-b111-a7334fa92b73",
+      "skill_reference": "actions skill"
+    }
+  ]
+}
